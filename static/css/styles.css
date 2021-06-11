@@ -1,0 +1,18 @@
+h1 {
+  text-align: center;
+  color: blue;
+  background-color: gold;
+}
+body {
+  background-image: url("../images/background.jpg");
+  margin: 100px;
+}
+.about {
+  float:right;
+  width: 800px;
+  background-color: turquoise;
+}
+form {
+  text-align: center;
+  background-color: turquoise;
+}
