@@ -8,7 +8,7 @@
   - John Nyamweya
 
 # Setup Instructions
-  -
+  - To access the github repository for this project, please use the following link (https://github.com/nyamzy/akan-name-generator.git). You will be able to access the     different files and also do any work on them.
 
 # Behavior Driven Development (BDD)
   This is how the application is supposed to work/behave:
@@ -18,7 +18,7 @@
   - When Submit button is pressed, it should give you your Akan name.
 
 # Live Link
-
+  View [Akan Name Generator] (http://nyamzy.github.io/akan-name-generator)
 
 # Technologies Used
   This application used the following languages:
