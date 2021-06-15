@@ -6,6 +6,8 @@ function getDayIndex(day, month, year) {
   var yy = parseInt("".join(((temp.split("")).slice(0,2))))
   var cc = parseInt("".join(((temp2.split("")).slice(2,2))))
   var dayIndex = ( ( (cc/4) -2*cc-1) + ((5*yy/4) ) + ((26*(mm+1)/10)) + dd ) % 7;
+
+  return dayIndex;
 }
 
 function getDayAndName(){
@@ -19,9 +21,10 @@ function getDayAndName(){
   let name = "";
 
   if (gender === "male"){
-    return maleNames;
+    return name.push(maleName);
   }else {
-    return femaleNames;
+    return name.push(femaleName);
   }
 return dd && name
 }
+alert("Your Akan name is " + name + " .");
