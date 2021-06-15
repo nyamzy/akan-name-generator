@@ -25,10 +25,10 @@ function getUserInput() {
   } return [0, 0, 0000];
 }
 
-function calculateDayIndex(inputArr) {
-  let day = inputArr[0];
-  let month = inputArr[1];
-  let year = inputArr[2];
+function calculateDayIndex(inptArr) {
+  let day = inptArr[0];
+  let month = inptArr[1];
+  let year = inptArr[2];
   let century = 19;
   let index = ( ( (century/4) -2*century-1) + ((5*year/4) ) + ((26*(month+1)/10)) + day ) % 7;
   return parseInt(index.toString().split(".")[0]);
@@ -45,7 +45,7 @@ function getDayAndName() {
     return ["", ""];
   } else {
     let index = calculateDayIndex(userInputArr);
-    let day = daysOfTheWeek(index);
+    let day = daysOfTheWeek[index];
     let name = "";
     let gender = prompt("Please enter your gender:");
     if (gender.toLowerCase().startsWith("m")) {
