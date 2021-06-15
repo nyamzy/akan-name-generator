@@ -9,12 +9,12 @@ function getDayIndex(day, month, year) {
 }
 
 function getDayAndName(){
-  var dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   var maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
   var femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
 
   let index = getDayIndex(dd,mm,yy);
-  let day = dayIndex;
+  let day = days[index];
   let gender = "";
   let name = "";
 
@@ -23,5 +23,5 @@ function getDayAndName(){
   }else {
     return femaleNames;
   }
-return 
+return dd && name
 }
