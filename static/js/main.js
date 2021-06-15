@@ -1,30 +1,59 @@
-function getDayIndex(day, month, year) {
-  var dd = day;
-  var mm = month;
-  var temp = year.split("");
-  var temp2 = temp.slice()
-  var yy = parseInt("".join(((temp.split("")).slice(0,2))))
-  var cc = parseInt("".join(((temp2.split("")).slice(2,2))))
-  var dayIndex = ( ( (cc/4) -2*cc-1) + ((5*yy/4) ) + ((26*(mm+1)/10)) + dd ) % 7;
+function getUserInput() {
+  let inputArr = [];
+  let date = prompt("Please enter the date of your birthday.");
+  date = parseInt(date);
 
-  return dayIndex;
+  if (date < 1 || date > 31) {
+    alert("Invalid date. Please try again");
+  } else {
+    inputArr.push(date);
+    let month = prompt("Please enter the month of your birthday.");
+    month = parseInt(month);
+    if (month < 1 || month > 12) {
+      alert("Invalid month. Please try again");
+    } else {
+      inputArr.push(month);
+      let year = prompt("Please enter the year of your birthday.");
+      if (year.length !== 4) {
+        alert("Invalid year. Please try again");
+      } else {
+        year = parseInt(year);
+        inputArr.push(year);
+        return inputArr;
+      }
+    }
+  } return [0, 0, 0000];
 }
 
-function getDayAndName(){
-  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  var maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
-  var femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
+function calculateDayIndex(inputArr) {
+  let day = inputArr[0];
+  let month = inputArr[1];
+  let year = inputArr[2];
+  let century = 19;
+  let index = ( ( (century/4) -2*century-1) + ((5*year/4) ) + ((26*(month+1)/10)) + day ) % 7;
+  return parseInt(index.toString().split(".")[0]);
+}
 
-  let index = getDayIndex(dd,mm,yy);
-  let day = days[index];
-  let gender = "";
-  let name = "";
 
-  if (gender === "male"){
-    return name.push(maleName);
-  }else {
-    return name.push(femaleName);
+function getDayAndName() {
+  let daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
+  let femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
+  let userInputArr = getUserInput();
+  if (userInputArr[0] === 0) {
+    alert("Input is invalid. Please try again.");
+    return ["", ""];
+  } else {
+    let index = calculateDayIndex(userInputArr);
+    let day = daysOfTheWeek(index);
+    let name = "";
+    let gender = prompt("Please enter your gender:");
+    if (gender.toLowerCase().startsWith("m")) {
+      name = maleNames[index];
+    } else {
+      name = femaleNames[index];
+    }
+    alert("You were born on " + day + "\nAnd your Akan name is " + name + ".");
   }
-return dd && name
+
 }
-alert("Your Akan name is " + name + " .");
